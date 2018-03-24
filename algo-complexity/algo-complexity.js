@@ -10,11 +10,11 @@
 /*
  Complexity:
  */
+//the function has o(1) time complexity because it go to throw the items and return it one of them ..
 
-
-var retrieve = function(key) {
+var retrieve = function(array) {
   var hash = 0;
-  for (var i = 0; i < key.length; i++) {
+  for (var i = 0; i < array.length; i++) {
     hash = (hash + Math.pow(i, hash)) % array.length;
   }
   return array[hash];
@@ -26,8 +26,9 @@ var retrieve = function(key) {
 /*
  Complexity:
  */
-
-
+//this function has O(1) complexity because it has a condition inside the loop and it will check from the
+//condition if its true ..
+//and O(n^2) if is false because it will still go throw the loop..
 var sortedArrayContainsItem = function(array, item) {
   var center = Math.floor(array.length / 2);
   if (array[center] === item) {
@@ -43,6 +44,8 @@ var sortedArrayContainsItem = function(array, item) {
 /*
  Complexity:
  */
+//this function has o(n) complexity because it will go throw all the element to check if
+// there more than one same element
 
 
 var hasDuplicates = function(array) {
