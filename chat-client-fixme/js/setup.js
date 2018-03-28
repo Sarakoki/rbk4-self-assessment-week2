@@ -117,6 +117,7 @@ var postData = function(message, username) {
     }),
     success: function(data) {
       console.log('Success!', data);
+      this.getData()
     },
     error: function(data) {
       console.log(data);

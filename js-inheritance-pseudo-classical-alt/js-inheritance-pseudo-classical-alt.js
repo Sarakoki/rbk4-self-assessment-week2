@@ -53,7 +53,7 @@ Horse.prototype.constructor = Horse;
 
 //-2
 var FlyingHorse = function(name,color) {
-  Horse.call(this);
+  Horse.call(this,name);
   this.color = color;
 };
 
