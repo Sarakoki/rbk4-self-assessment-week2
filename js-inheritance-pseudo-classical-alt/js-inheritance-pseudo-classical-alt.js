@@ -40,12 +40,11 @@ var makeFlyingHorse = function(name, color) {
 //-1
 var Horse = function(name) {
    this.name = name;
-   this.destination = destination;
+   
  };
 
- Horse.prototype = Object.create(makeHorse.prototype);
- Horse.prototype.goSomewhere = function() {
-    return this.name + ' is galloping to ' + this.destination + '!';
+ Horse.prototype.goSomewhere = function(destination) {
+    return this.name + ' is galloping to ' + destination + '!';
   };
 
 Horse.prototype.constructor = Horse;
@@ -53,20 +52,20 @@ Horse.prototype.constructor = Horse;
 
 
 //-2
-var FlyingHorse = function() {
+var FlyingHorse = function(name,color) {
   Horse.call(this);
   this.color = color;
-  this.destination = destination;
-  this.milesToDestination = milesToDestination;
 };
 
-FlyingHorse.prototype = Object.create(makeFlyingHorse.prototype);
-FlyingHorse.prototype.goSomewhere = function() {
-    if (this.milesToDestination < 10) {
-      return goSomewhere(this.destination);
+
+FlyingHorse.prototype.goSomewhere = function(destination,milesToDestination) {
+    if (milesToDestination < 10) {
+      return Horse.prototype.goSomewhere.call(this,destination);
     } else {
-      return this.name + ' is flying to ' + this.destination + '!';
+      return this.name + ' is flying to ' + destination + '!';
     }
   };
 
 FlyingHorse.prototype.constructor = FlyingHorse;
+
+
